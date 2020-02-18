@@ -166,7 +166,7 @@ final class HttpDFileInfoTask implements IInfoTask, Runnable {
         }else if(conn.getHeaderField("Content-Type")!=null){
           String contentType=conn.getHeaderField("Content-Type");
           String type=contentType.substring(contentType.indexOf(File.separator)+1);
-          String newName =mEntity.getFileName()+File.separator+type;
+          String newName =mEntity.getFileName()+"."+type;
           mEntity.setServerFileName(newName);
           renameFile(newName);
         }
