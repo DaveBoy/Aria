@@ -1,6 +1,15 @@
 ## 开发日志
-  + v_3.8.6
+  + v_3.8.7
+    - 修复组合任务单个子任务失败后，重新恢复组合任务，组合任务状态变为完成的问题
+    - 修复40x错误，会继续重试并且无法重试成功的问题 https://github.com/AriaLyy/Aria/issues/619
+    - 修复wait模式下，resume(true)无效问题
+    - 修复now模式下的一些问题 https://github.com/AriaLyy/Aria/issues/620
+  + v_3.8.6 (2020/2/17)
     - fix bug https://github.com/AriaLyy/Aria/issues/608
+    - fix bug https://github.com/AriaLyy/Aria/issues/579#issuecomment-586665035
+    - fix bug https://github.com/AriaLyy/Aria/issues/610
+    - fix bug https://github.com/AriaLyy/Aria/issues/614
+    - 增加文件名适配器（感谢小伙伴[DaveBoy](https://github.com/DaveBoy)的PR）
     - 优化异常提示
   + v_3.8.5 (2020/1/18)
     - fix bug https://github.com/AriaLyy/Aria/issues/599

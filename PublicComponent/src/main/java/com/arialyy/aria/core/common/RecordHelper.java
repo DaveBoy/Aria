@@ -130,13 +130,17 @@ public class RecordHelper {
           /*
            * 检查记录文件
            */
-          if (blockFileLen == threadRect) {
+          if (blockFileLen == threadRect && blockFileLen != 0) {
             ALog.i(TAG, String.format("分块【%s】已完成，更新记录", temp.getPath()));
             tr.startLocation = blockFileLen;
             tr.isComplete = true;
           } else if (tr.startLocation != realLocation) { // 处理记录小于分块文件长度的情况
             ALog.i(TAG, String.format("修正分块【%s】的进度记录为：%s", temp.getPath(), realLocation));
             tr.startLocation = realLocation;
+          }else {
+            ALog.i(TAG, String.format("修正分块【%s】的进度记录为：%s", temp.getPath(), realLocation));
+            tr.startLocation = realLocation;
+            tr.isComplete = false;
           }
         } else {
           ALog.i(TAG, String.format("分块【%s】已完成", temp.getPath()));
@@ -174,7 +178,7 @@ public class RecordHelper {
       tr.startLocation = 0;
       tr.isComplete = false;
       tr.endLocation = mWrapper.getEntity().getFileSize();
-    } else if (file.length() == mWrapper.getEntity().getFileSize()) {
+    } else if (file.length() != 0 && file.length() == mWrapper.getEntity().getFileSize()) {
       ALog.d(TAG, "文件长度一致，线程完成");
       tr.isComplete = true;
     } else {
