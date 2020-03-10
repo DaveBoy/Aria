@@ -26,6 +26,7 @@ import com.arialyy.aria.core.listener.DownloadGroupListener;
 import com.arialyy.aria.core.loader.IInfoTask;
 import com.arialyy.aria.core.wrapper.AbsTaskWrapper;
 import com.arialyy.aria.exception.AriaException;
+import java.io.File;
 
 /**
  * http 组合任务加载器
@@ -54,6 +55,7 @@ final class HttpDGLoader extends AbsGroupLoader {
     onPostStart();
     for (DTaskWrapper wrapper : getWrapper().getSubTaskWrapper()) {
       DownloadEntity dEntity = wrapper.getEntity();
+
       startSubLoader(createSubLoader(wrapper, dEntity.getFileSize() < 0));
     }
   }
